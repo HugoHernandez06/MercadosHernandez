@@ -1,0 +1,48 @@
+﻿@model MercadosHernandez.Models.Compra
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color:orange">Creación de la información de las diferentes compras!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes ingresar el nuevo mercado, producto y la cantidad!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Cantidad" class="control-label" style="color:white"></label>
+                    <input asp-for="Cantidad" class="form-control" placeholder="Nombre">
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="MercadoID" class="control-label" style="color:white"></label>
+                    <select asp-for="MercadoID" class="form-control" asp-items="ViewBag.MercadoID"></select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="ProductoID" class="control-label" style="color:white"></label>
+                    <select asp-for="ProductoID" class="form-control" asp-items="ViewBag.ProductoID"></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

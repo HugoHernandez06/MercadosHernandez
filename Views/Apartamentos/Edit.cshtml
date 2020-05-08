@@ -1,0 +1,58 @@
+﻿@model MercadosHernandez.Models.Apartamento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="color:orange">Edición de la información de los diferentes apartamentos!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes cambiar el numero, piso, bloque, unidad y propietario del apartamento!</h4>
+<hr />
+<form asp-action="Edit">
+    <div class="form-group row">
+        <label asp-for="Numero" class="col-sm-2 col-form-label" style="color:white">Numero</label>
+        <div class="col-sm-10">
+            <input asp-for="Numero" class="form-control" />
+            <span asp-validation-for="Numero" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Piso" class="col-sm-2 col-form-label" style="color:white">Piso</label>
+        <div class="col-sm-10">
+            <input asp-for="Piso" class="form-control" />
+            <span asp-validation-for="Piso" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Bloque" class="col-sm-2 col-form-label" style="color:white">Bloque</label>
+        <div class="col-sm-10">
+            <input asp-for="Bloque" class="form-control" />
+            <span asp-validation-for="Bloque" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="UnidadResidencialID" class="col-sm-2 col-form-label" style="color:white">UnidadResidencialID</label>
+        <div class="col-sm-10">
+            <select asp-for="UnidadResidencialID" class="form-control" asp-items="ViewBag.UnidadResidencialID"></select>
+            <span asp-validation-for="UnidadResidencialID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PropietarioID" class="col-sm-2 col-form-label" style="color:white">PropietarioID</label>
+        <div class="col-sm-10">
+            <select asp-for="PropietarioID" class="form-control" asp-items="ViewBag.PropietarioID"></select>
+            <span asp-validation-for="PropietarioID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

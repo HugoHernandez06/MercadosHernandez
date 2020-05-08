@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MercadosHernandez.Models.Mercado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:orange">Mercados!</h1>
+
+<p>
+    <a class="btn btn-primary btn-xl" asp-action="Create">Ingresar un nuevo mercado!</a>
+</p>
+
+<table class="table table-bordered" style="color:white">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha_Creacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Propietario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_Creacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Propietario.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+            <td>
+                <button type="button" class="btn btn-light"><a asp-action="Edit" asp-route-id="@item.Id">Edit</a></button>
+                <button type="button" class="btn btn-warning"><a asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                <button type="button" class="btn btn-danger"><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

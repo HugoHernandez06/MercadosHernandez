@@ -1,0 +1,38 @@
+﻿@model MercadosHernandez.Models.Compra
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h1 style="color:orange">Visualización de la información de las diferentes compras!</h1>
+<form>
+    <div>
+        <h4 style="color:orange">En el siguiente formulario puedes visualizar los detalles de la compra!</h4>
+        <hr />
+        <dl class="row" style="color:white">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Cantidad)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Mercado)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Mercado.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Producto)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Producto.Nombre)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>

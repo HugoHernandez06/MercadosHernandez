@@ -1,0 +1,46 @@
+﻿@model MercadosHernandez.Models.Mercado
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h1 style="color:orange">Edición de la información de los diferentes mercados!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes cambiar el propietario, estado y la fecha de creacion del mercado!</h4>
+<hr />
+<form asp-action="Edit">
+    <div class="form-group row">
+        <label asp-for="Fecha_Creacion" class="col-sm-2 col-form-label" style="color:white">Fecha_Creacion</label>
+        <div class="col-sm-10">
+            <input asp-for="Fecha_Creacion" class="form-control" />
+            <span asp-validation-for="Fecha_Creacion" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="PropietarioID" class="col-sm-2 col-form-label" style="color:white">PropietarioID</label>
+        <div class="col-sm-10">
+            <select asp-for="PropietarioID" class="form-control" asp-items="ViewBag.PropietarioID"></select>
+            <span asp-validation-for="PropietarioID" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2" style="color:white">Estado de la ciudad</div>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,43 @@
+﻿@model MercadosHernandez.Models.Compra
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="color:orange">Edición de la información de las diferentes compras!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes cambiar el producto, mercado y la cantidad de la compra!</h4>
+<hr />
+<form asp-action="Edit">
+    <div class="form-group row">
+        <label asp-for="Cantidad" class="col-sm-2 col-form-label" style="color:white">Cantidad</label>
+        <div class="col-sm-10">
+            <input asp-for="Cantidad" class="form-control" />
+            <span asp-validation-for="Cantidad" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="MercadoID" class="col-sm-2 col-form-label" style="color:white">MercadoID</label>
+        <div class="col-sm-10">
+            <select asp-for="MercadoID" class="form-control" asp-items="ViewBag.MercadoID"></select>
+            <span asp-validation-for="MercadoID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="ProductoID" class="col-sm-2 col-form-label" style="color:white">ProductoID</label>
+        <div class="col-sm-10">
+            <select asp-for="ProductoID" class="form-control" asp-items="ViewBag.ProductoID"></select>
+            <span asp-validation-for="ProductoID" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

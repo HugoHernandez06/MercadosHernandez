@@ -1,0 +1,68 @@
+﻿@model MercadosHernandez.Models.Apartamento
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color:orange">Creación de la información de los diferentes apartamentos de nuestros clientes!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes ingresar el nuevo numero, piso, bloque, unidad residencial y propietario del nuevo departamento!</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Numero" class="control-label"style="color:white"></label>
+                    <input asp-for="Numero" class="form-control" />
+                    <span asp-validation-for="Numero" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Piso" class="control-label"style="color:white"></label>
+                    <input asp-for="Piso" class="form-control" />
+                    <span asp-validation-for="Piso" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Bloque" class="control-label"style="color:white"></label>
+                    <input asp-for="Bloque" class="form-control" />
+                    <span asp-validation-for="Bloque" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="UnidadResidencialID" class="control-label"style="color:white"></label>
+                    <select asp-for="UnidadResidencialID" class="form-control" asp-items="ViewBag.UnidadResidencialID"></select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="PropietarioID" class="control-label"style="color:white"></label>
+                    <select asp-for="PropietarioID" class="form-control" asp-items="ViewBag.PropietarioID"></select>
+                </div>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label" style="color:white">
+                    <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

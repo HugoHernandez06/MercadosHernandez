@@ -1,0 +1,45 @@
+﻿@model MercadosHernandez.Models.Propietario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="color:orange">Edición de la información de los diferentes propietarios!</h1>
+
+<h4 style="color:orange">En el siguiente formulario puedes cambiar el nombre, apellido y telefono del propietario!</h4>
+<hr />
+
+<form asp-action="Edit">
+    <div class="form-group row">
+        <label asp-for="Nombre" class="col-sm-2 col-form-label" style="color:white">Nombre</label>
+        <div class="col-sm-10">
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Apellido" class="col-sm-2 col-form-label" style="color:white">Apellido</label>
+        <div class="col-sm-10">
+            <input asp-for="Apellido" class="form-control" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Telefono" class="col-sm-2 col-form-label" style="color:white">Telefono</label>
+        <div class="col-sm-10">
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

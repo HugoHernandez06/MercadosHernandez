@@ -1,0 +1,55 @@
+﻿@model MercadosHernandez.Models.Apartamento
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 style="color:orange">Visualización de la información de los diferentes apartamentos de nuestros clientes!</h1>
+<form>
+    <div>
+        <h4 style="color:orange">En el siguiente formulario puedes visualizar los detalles de los apartamentos!</h4>
+        <hr />
+        <dl class="row" style="color:white">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Numero)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Numero)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Piso)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Piso)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Bloque)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Bloque)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Unidad)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Unidad.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Propietario)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Propietario.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Estado)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Estado)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-primary btn-primary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        <a class="btn btn-primary btn-primary" asp-action="Index">Back to List</a>
+    </div>
+</form>
